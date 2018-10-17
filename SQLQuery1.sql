@@ -1,11 +1,17 @@
+--5) unique_invoice_countries.sql: Provide a query showing a unique/distinct list of billing 
+--countries from the Invoice table.
+
+select distinct BillingCountry
+from Invoice
+
 --4) sales_agents.sql: Provide a query showing only the Employees who are Sales Agents.
 
-select 
+/*select 
 	Title,
 	FirstName,
 	LastName
 from Employee
-where Title like '%Sales%'
+where Title like '%Sales%'*/
 
 --3) brazil_customers_invoices.sql: Provide a query showing the Invoices of customers who are from Brazil. 
 --The resultant table should show the customer's full name, Invoice ID, Date of the invoice and billing country.
