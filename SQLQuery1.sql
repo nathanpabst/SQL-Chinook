@@ -1,8 +1,20 @@
+--6) sales_agent_invoices.sql: Provide a query that shows the invoices associated with each sales agent. 
+--The resultant table should include the Sales Agent's full name.
+
+select 
+	FirstName,
+	LastName,
+	EmployeeId
+from Employee as e
+inner join Invoice as i ON i.CustomerId = c.CustomerId
+
+
+
 --5) unique_invoice_countries.sql: Provide a query showing a unique/distinct list of billing 
 --countries from the Invoice table.
 
-select distinct BillingCountry
-from Invoice
+/*select distinct BillingCountry
+from Invoice */
 
 --4) sales_agents.sql: Provide a query showing only the Employees who are Sales Agents.
 
