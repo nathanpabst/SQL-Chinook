@@ -1,3 +1,10 @@
+--10) invoice_37_line_item_count.sql: Looking at the InvoiceLine table, 
+--provide a query that COUNTs the number of line items for Invoice ID 37.
+
+select count(Quantity)
+from InvoiceLine
+where InvoiceId = 37
+
 --9) total_sales_{year}.sql: What are the respective total sales for each of those years?
 
 select SUM(Total) as InvoiceTotal2009
