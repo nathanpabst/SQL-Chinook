@@ -1,3 +1,13 @@
+--9) total_sales_{year}.sql: What are the respective total sales for each of those years?
+
+select SUM(Total) as InvoiceTotal2009
+from Invoice
+where Year(InvoiceDate) = 2009 
+
+select SUM(Total) as InvoiceTotal2011
+from Invoice
+where Year(InvoiceDate) = 2011
+
 --8) total_invoices_{year}.sql: How many Invoices were there in 2009 and 2011?
 
 select count(*)
