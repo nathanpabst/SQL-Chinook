@@ -1,13 +1,26 @@
+--7) invoice_totals.sql: Provide a query that shows the Invoice Total, Customer name, 
+--Country and Sale Agent name for all invoices and customers.
+
+select 	
+	CustomerName = c.FirstName + ' ' + c.LastName,
+	c.Country,
+	InvoiceTotal = i.Total, 
+	SalesAgent = e.FirstName + ' ' + e.LastName
+from Invoice as i 
+join Customer as c on c.CustomerId = i.CustomerId 
+join Employee as e on e.EmployeeId = c.SupportRepId
+order by i.Total DESC
+
 --6) sales_agent_invoices.sql: Provide a query that shows the invoices associated with each sales agent. 
 --The resultant table should include the Sales Agent's full name.
 
-select 
-	EmployeeName = e.FirstName + ' ' + e.LastName,
-	i.*
-from Employee as e
-inner join Customer as c ON c.SupportRepId = e.EmployeeId
-inner join Invoice as i ON i.CustomerId = c.CustomerId
-order by CustomerId
+--select 
+	--EmployeeName = e.FirstName + ' ' + e.LastName,
+	--i.*
+--from Employee as e
+--inner join Customer as c ON c.SupportRepId = e.EmployeeId
+--inner join Invoice as i ON i.CustomerId = c.CustomerId
+--order by CustomerId
 
 --5) unique_invoice_countries.sql: Provide a query showing a unique/distinct list of billing 
 --countries from the Invoice table.
