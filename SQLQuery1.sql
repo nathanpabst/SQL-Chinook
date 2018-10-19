@@ -1,3 +1,10 @@
+--8) total_invoices_{year}.sql: How many Invoices were there in 2009 and 2011?
+
+select count(*)
+	InvoiceDate
+from Invoice
+where YEAR(InvoiceDate) = 2009 or YEAR(InvoiceDate) = 2011
+
 --7) invoice_totals.sql: Provide a query that shows the Invoice Total, Customer name, 
 --Country and Sale Agent name for all invoices and customers.
 
