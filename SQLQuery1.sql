@@ -1,3 +1,12 @@
+--17) invoices_line_item_count.sql: Provide a query that shows all Invoices but includes the # of invoice line items.
+
+select
+	i.InvoiceId,
+	LineItems = count(l.InvoiceLineId)
+from Invoice as i 
+join InvoiceLine as l on l.InvoiceId = i.InvoiceId
+group by i.InvoiceId
+
 --16) tracks_no_id.sql: Provide a query that shows all the Tracks, but displays 
 --no IDs. The result should include the Album name, Media type and Genre.
 
