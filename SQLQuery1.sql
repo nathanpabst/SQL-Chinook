@@ -1,3 +1,12 @@
+--14) country_invoices.sql: Provide a query that shows the 
+--# of invoices per country. HINT: GROUP BY
+
+select 
+	Country = i.BillingCountry,
+	NumOfInvoices = COUNT(i.InvoiceId) 
+from Invoice as i 
+group by i.BillingCountry
+
 --13) line_item_track_artist.sql: Provide a query that includes 
 --the purchased track name AND artist name with each invoice line item.
 select 
