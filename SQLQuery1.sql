@@ -1,3 +1,14 @@
+--15) playlists_track_count.sql: Provide a query that shows the 
+--total number of tracks in each playlist. The Playlist name 
+--should be include on the resulant table.
+
+select 
+	ListName = Playlist.Name,
+	COUNT(TrackId) as NumOfTracks
+from PlaylistTrack 
+join Playlist on Playlist.PlaylistId = PlaylistTrack.PlaylistId
+group by Playlist.Name
+
 --14) country_invoices.sql: Provide a query that shows the 
 --# of invoices per country. HINT: GROUP BY
 
