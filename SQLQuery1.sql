@@ -1,3 +1,13 @@
+--12) line_item_track.sql: Provide a query that includes 
+--the purchased track name with each invoice line item.
+select 
+	i.InvoiceLineId,
+	--i.TrackId,
+	TrackName = t.Name
+from InvoiceLine as i 
+join Track as t on t.TrackId = i.TrackId
+order by i.InvoiceLineId
+
 --11) line_items_per_invoice.sql: Looking at the InvoiceLine table, 
 --provide a query that COUNTs the number of line items for each Invoice. HINT: GROUP BY
 
