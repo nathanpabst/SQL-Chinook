@@ -1,3 +1,13 @@
+--18) sales_agent_total_sales.sql: Provide a query that shows total sales made by each sales agent.
+
+select 
+	SalesRep = e.FirstName + ' ' + e.LastName,
+	TotalSales = i.Total
+from Invoice as i 
+join Customer as c on c.CustomerId = i.CustomerId 
+join Employee as e on e.EmployeeId = c.SupportRepId
+order by i.Total desc
+
 --17) invoices_line_item_count.sql: Provide a query that shows all Invoices but includes the # of invoice line items.
 
 select
