@@ -1,3 +1,11 @@
+--11) line_items_per_invoice.sql: Looking at the InvoiceLine table, 
+--provide a query that COUNTs the number of line items for each Invoice. HINT: GROUP BY
+
+select 
+	InvoiceId,
+	count(InvoiceId) AS NumberOfLines
+ from InvoiceLine group by InvoiceId 
+
 --10) invoice_37_line_item_count.sql: Looking at the InvoiceLine table, 
 --provide a query that COUNTs the number of line items for Invoice ID 37.
 
