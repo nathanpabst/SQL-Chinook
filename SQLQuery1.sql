@@ -1,11 +1,39 @@
+--19) top_2009_agent.sql: Which sales agent made the most in sales in 2009?
+--Hint: Use the MAX function on a subquery.
+
+--select 
+--	TopSalesRep2009 = e.FirstName + ' ' + e.LastName,
+--	(select TotalSales = Max(i.Total))
+--from Invoice as i 
+--join Customer as c on c.CustomerId = i.CustomerId 
+--join Employee as e on e.EmployeeId = c.SupportRepId
+--where YEAR(i.InvoiceDate) = 2009
+--group by i.Total, e.FirstName, e.LastName 
+--order by i.total desc
+
+select MAX(ss.TotalSales) FROM
+(
+	select 
+	SalesRep = e.FirstName + ' ' + e.LastName,
+	TotalSales = count(i.Total)
+from Invoice as i 
+join Customer as c on c.CustomerId = i.CustomerId 
+join Employee as e on e.EmployeeId = c.SupportRepId
+where year(i.InvoiceDate) = 2009
+group by e.FirstName, e.LastName
+) ss --aliasing the table for future reference
+
+ 
 --18) sales_agent_total_sales.sql: Provide a query that shows total sales made by each sales agent.
 
 select 
 	SalesRep = e.FirstName + ' ' + e.LastName,
-	TotalSales = i.Total
+	TotalSales = count(i.Total)
 from Invoice as i 
 join Customer as c on c.CustomerId = i.CustomerId 
 join Employee as e on e.EmployeeId = c.SupportRepId
+where year(i.InvoiceDate) = 2009
+group by e.FirstName, e.LastName
 order by i.Total desc
 
 --17) invoices_line_item_count.sql: Provide a query that shows all Invoices but includes the # of invoice line items.
