@@ -1,3 +1,14 @@
+--20) top_agent.sql: Which sales agent made the most in sales over all? 
+
+select top 1 
+	[Sales Rep] = e.FirstName + ' ' + e.LastName,
+	sum(i.Total) as [Total Sales]
+from Invoice as i
+	join Customer as c on c.CustomerId = i.CustomerId
+	join Employee as e on e.EmployeeId = c.SupportRepId
+group by e.FirstName, e.LastName
+order by [Total Sales] desc
+
 --19) top_2009_agent.sql: Which sales agent made the most in sales in 2009?
 --Hint: Use the MAX function on a subquery.
 
