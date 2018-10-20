@@ -1,3 +1,14 @@
+--21) sales_agent_customer_count.sql: Provide a query that shows the count of customers 
+--assigned to each sales agent.
+
+select
+	[Sales Rep] = e.FirstName + ' ' + e.LastName,
+	[Customer Count] = count(c.CustomerId)
+from Employee as e
+	join Customer as c on c.SupportRepId = e.EmployeeId
+group by e.FirstName, e.LastName
+order by [Customer Count] desc
+
 --20) top_agent.sql: Which sales agent made the most in sales over all? 
 
 select top 1 
