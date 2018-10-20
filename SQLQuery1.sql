@@ -1,8 +1,19 @@
+--13) line_item_track_artist.sql: Provide a query that includes 
+--the purchased track name AND artist name with each invoice line item.
+select 
+	InvoiceLine = i.InvoiceLineId, 
+	Artist = x.Name,
+	TrackTitle = t.Name
+from Track as t
+join InvoiceLine as i on i.TrackId = t.TrackId
+join Album as a on a.AlbumId = t.AlbumId
+join Artist as x on x.ArtistId = a.ArtistId
+order by i.InvoiceLineId
+
 --12) line_item_track.sql: Provide a query that includes 
 --the purchased track name with each invoice line item.
 select 
 	i.InvoiceLineId,
-	--i.TrackId,
 	TrackName = t.Name
 from InvoiceLine as i 
 join Track as t on t.TrackId = i.TrackId
