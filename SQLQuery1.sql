@@ -1,3 +1,12 @@
+--22) sales_per_country.sql: Provide a query that shows the total sales per country.
+
+select 
+	Country = BillingCountry,
+	[Total Sales] = sum(Total)
+from Invoice
+group by BillingCountry
+order by [Total Sales] desc
+
 --21) sales_agent_customer_count.sql: Provide a query that shows the count of customers 
 --assigned to each sales agent.
 
