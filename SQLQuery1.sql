@@ -1,3 +1,12 @@
+--23) top_country.sql: Which country's customers spent the most?
+
+select top 1
+	Country = BillingCountry,
+	[Total Spend] = sum(Total)
+from Invoice
+group by BillingCountry
+order by [Total Spend] desc
+
 --22) sales_per_country.sql: Provide a query that shows the total sales per country.
 
 select 
