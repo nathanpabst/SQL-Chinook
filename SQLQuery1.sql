@@ -1,3 +1,14 @@
+--16) tracks_no_id.sql: Provide a query that shows all the Tracks, but displays 
+--no IDs. The result should include the Album name, Media type and Genre.
+
+select 
+	MediaType = m.Name,
+	Genre = g.Name, 
+	SongName = t.Name	 
+from Track as t 
+join Genre as g on g.GenreId = t.TrackId 
+join MediaType as m on m.MediaTypeId = t.MediaTypeId
+
 --15) playlists_track_count.sql: Provide a query that shows the 
 --total number of tracks in each playlist. The Playlist name 
 --should be include on the resulant table.
