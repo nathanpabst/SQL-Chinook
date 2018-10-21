@@ -1,3 +1,15 @@
+--27) top_media_type.sql: Provide a query that shows the most purchased Media Type.
+
+select top 1
+	[Media Type] = m.Name,
+	[Purchased Quantity] = sum(i.Quantity)
+from InvoiceLine as i
+	join Track as t on t.TrackId = i.TrackId
+	join MediaType as m on m.MediaTypeId = t.MediaTypeId
+group by m.Name
+order by [Purchased Quantity] desc 
+
+
 --26) top_3_artists.sql: Provide a query that shows the top 3 best selling artists.
 
 select top 3
