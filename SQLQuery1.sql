@@ -1,3 +1,15 @@
+--26) top_3_artists.sql: Provide a query that shows the top 3 best selling artists.
+
+select top 3
+	Artist = x.Name,
+	[Unit Sales] = sum(l.Quantity)
+From InvoiceLine as l
+	join Track as t on t.TrackId = l.TrackId
+	join Album as a on a.AlbumId = t.AlbumId
+	join Artist as x on x.ArtistId = a.ArtistId
+group by x.Name
+order by [Unit Sales] desc
+
 --25) top_5_tracks.sql: Provide a query that shows the top 5 most purchased songs.
 
 select top 5
