@@ -1,3 +1,14 @@
+--25) top_5_tracks.sql: Provide a query that shows the top 5 most purchased songs.
+
+select top 5
+	[Song Name] = t.Name,
+	Purchases = sum(l.Quantity)
+from InvoiceLine as l
+	join Track as t on t.TrackId = l.TrackId
+	join Invoice as i on i.InvoiceId = l.InvoiceId
+group by t.Name
+order by Purchases desc
+
 --24) top_2013_track.sql: Provide a query that shows the most purchased track of 2013.
 
 select top 1
